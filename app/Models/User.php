@@ -10,6 +10,24 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    public function collect(){
+        $this->hasMany(collect::class);
+    }
+    public function district(){
+        $this->belongsTo(district::class);
+    }
+    public function media(){
+        $this->belongsTo(media::class);
+    }
+    public function praise(){
+        $this->hasMany(praise::class);
+    }
+    public function userInfo(){
+        $this->hasOne(userInfo::class);
+    }
+    public function viewed(){
+        $this->hasMany(viewed::class);
+    }
 
     /**
      * The attributes that are mass assignable.
